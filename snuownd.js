@@ -508,14 +508,14 @@
 		if (data.indexOf('/r/') != 0) return 0;
 
 		link_end = "/r/".length;
-		if (data.substr(link_end-1, 4).toLowerCase() == "all-") {
+		if (data.substr(link_end, 4).toLowerCase() == "all-") {
 			allMinus = true;
 		}
 		do {
 			var start = link_end;
 			var max_length = 24;
 			/* special case: /r/reddit.com (the only subreddit with a '.') */
-			if ( size >= link_end+10 && data.substr(link_end, 10).toLowerCase() == 'reddit.com') {
+			if ( size >= link_end+10 && data.substr(link_end, 10) == 'reddit.com') {
 				link_end += 10;
 				max_length = 10;
 			} else {
